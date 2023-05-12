@@ -3,13 +3,13 @@ import os
 from PykemonMenu import PykemonMenu
 
 class MenuSimulator:
-    def __init__(self, width, height):
+    def __init__(self, width: int, height: int) -> None:
         # Starting up pygame window
         pygame.init()
 
         # Set the Width and the Height
-        self.width = width
-        self.height = height
+        self.screen_width = width
+        self.screen_height = height
 
         # Background Colors
         self.sky_color = pygame.image.load(os.path.join('Assets', 'This_Is_a_Game.png')) # Light blue sky
@@ -20,22 +20,22 @@ class MenuSimulator:
         # Set window title
 
         # Create Menu screen
-        self.screen = pygame.display.set_mode((self.width, self.height))
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
 
         # Set up buttons
         self.button_width = 200
         self.button_height = 50
         self.button_spacing = 20
 
-        self.start_button = pygame.Rect((self.width - self.button_width) / 2, 400, self.button_width, self.button_height)
-        self.quit_button = pygame.Rect((self.width - self.button_width) / 2, self.start_button.bottom + self.button_spacing, self.button_width, self.button_height)
+        self.start_button = pygame.Rect((self.screen_width - self.button_width) / 2, 400, self.button_width, self.button_height)
+        self.quit_button = pygame.Rect((self.screen_width - self.button_width) / 2, self.start_button.bottom + self.button_spacing, self.button_width, self.button_height)
 
         # Set up text animations
         self.title_text = self.title_font.render('This Is Not a Game', True, (255, 255, 255))          #set up the variable to be used later
         self.title_animation_text = 200
         self.title_animation_check = True
 
-    def run(self):
+    def run(self) -> None:
         # Main loop
         while True:
             # Handling the change in events
@@ -45,7 +45,7 @@ class MenuSimulator:
                     return
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.start_button.collidepoint(event.pos):
-                        new_menu = PykemonMenu(self.width, self.height)
+                        new_menu = PykemonMenu(self.screen_width, self.screen_height)
                         new_menu.run(self.screen)
 
                     elif self.quit_button.collidepoint(event.pos):
@@ -56,7 +56,7 @@ class MenuSimulator:
             self.screen.blit(self.sky_color, (0, 0))
 
             # Draw title sequence
-            title_rect = self.title_text.get_rect(center=(self.width / 2, self.title_animation_text))
+            title_rect = self.title_text.get_rect(center=(self.screen_width / 2, self.title_animation_text))
             if 150 <= self.title_animation_text <= 200 and self.title_animation_check == True: #goes up
                 self.title_animation_text = self.title_animation_text - 0.05
 

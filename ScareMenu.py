@@ -4,7 +4,7 @@ from time import sleep
 
 
 class ScareMenu:
-    def __init__(self, screen_width, screen_height):
+    def __init__(self, screen_width: int, screen_height: int) -> None:
 
         # Set the Width and the Height
         self.screen_width = screen_width
@@ -41,7 +41,7 @@ class ScareMenu:
         # Creation of the Scare Text
         self.title_text = self.title_font.render(self.text, True, (255, 255, 255))
 
-    def run(self, screen):
+    def run(self, screen: int) -> None:
         text_input = ""
         show_buttons = True
         while True:
