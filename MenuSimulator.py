@@ -12,7 +12,7 @@ class MenuSimulator:
         self.height = height
 
         # Background Colors
-        self.sky_color = pygame.image.load(os.path.join('MenuSimulator/Assets', 'This_Is_a_Game.png')) # Light blue sky
+        self.sky_color = pygame.image.load(os.path.join('Assets', 'This_Is_a_Game.png')) # Light blue sky
 
         # Set font size for buttons and for the Title Text
         self.button_font = pygame.font.SysFont('Arial', 32)

@@ -10,7 +10,7 @@ class PykemonMenu:
         self.height = height
 
         # Background Colors
-        self.sky_color = pygame.image.load(os.path.join('MenuSimulator/Assets', 'Pykemon_Background.png')) # Pykemon Background Image
+        self.sky_color = pygame.image.load(os.path.join('Assets', 'Pykemon_Background.png')) # Pykemon Background Image
 
         # Set font size for buttons and for the Title Text
         self.button_font = pygame.font.SysFont('Arial', 32)
